@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Personal Expense Tracker</h1>
+            <p>Manage your daily expenses easily</p>
+        </header>
+
+        <section class="summary">
+            <div class="card">
+                <h3>Total Expenses</h3>
+                <h2 id="totalExpense">₹0.00</h2>
+            </div>
+
+            <div class="card">
+                <h3>This Month</h3>
+                <h2 id="monthlyExpense">₹0.00</h2>
+            </div>
+
+            <div class="card">
+                <h3>Total Records</h3>
+                <h2 id="totalRecords">0</h2>
+            </div>
+        </section>
+
+        <section class="expense-form">
+            <h2>Add New Expense</h2>
+
+            <form id="expenseForm">
+                <input type="text" id="title"
+                    placeholder="Expense name" required>
+
+                <input type="number" id="amount"
+                    placeholder="Amount in ₹" min="0.01"
+                    step="0.01" required>
+
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Education">Education</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <input type="date" id="date" required>
+
+                <button type="submit">Add Expense</button>
+            </form>
+        </section>
+
+        <section class="expense-list">
+            <h2>Recent Expenses</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="expenseList"></tbody>
+            </table>
+        </section>
+
+        <section class="chart-section">
+            <h2>Expense Chart</h2>
+            <div class="chart-container">
+                <canvas id="expenseChart"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
